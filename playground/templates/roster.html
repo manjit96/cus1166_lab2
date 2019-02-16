@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+</head>
+<body>
+{% extends "layout.html" %}
+{% block ros %}
+<b1> Student roster for course:</b1>
+{% if grade_view == "1" %}
+    <b2>
+        {% for student in class_roster %}
+        <li>
+            {{student[0]}}'s grade is: <span style="color:green"> {{student[1]}} </span>
+        </li>
+        {% endfor %}
+    {% elif grade_view == "2" %}
+        {% for student in class_roster %}
+        <li>
+            {{student[0]}} is a {{student[2]}}
+        </li>
+        {% endfor %}
+    {% elif grade_view == "0" %}
+        {% for student in class_roster %}
+        <li>
+            {{student[0]}} is a {{student[2]}} and their grade is: <span style="color:green"> {{student[1]}} </span>
+        </li>
+        {% endfor %}
+
+    {% else %}
+        <li> DOES NOT EXIST. Please input 0,1,2 after roster/ in url. </li>
+    </b2>
+{% endif %}
+{% endblock %}
+</body>
+
